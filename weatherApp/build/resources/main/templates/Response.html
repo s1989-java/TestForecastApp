@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Forcast details</title>
+</head>
+<body>
+<table class="table table-dark">
+    <thead>
+    <tr>
+        <th> Timezone </th>
+        <th> Temprature </th>
+        <th> Humidity </th>
+        <th> windSpeed </th>
+        <th> hourly summary </th>
+        <th> daily windSpeed </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${details.empty}">
+        <td colspan="2"> No details Available </td>
+    </tr>
+    <tr th:each="detail : ${details}">
+        <td><span th:text="${detail.timezone}"> Timezone </span></td>
+        <td><span th:text="${detail.currently.temperature}"> Temprature </span></td>
+        <td><span th:text="${detail.currently.humidity}"> Humidity </span></td>
+        <td><span th:text="${detail.currently.windSpeed}"> windSpeed </span></td>
+        <td><span th:text="${detail.hourly.summary}">hourly summary </span></td>
+        <td><span th:text="${detail.daily.summary}"> daily windSpeed </span></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
